@@ -1,0 +1,100 @@
+.app {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Baseball hero background — covers the top half of the screen, behind content */
+.hero-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.flying-ball {
+  width: min(70vw, 520px);
+  height: auto;
+  animation: ball-float 3.2s ease-in-out infinite;
+}
+
+.flying-ball .ball {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ball-spin 3.2s ease-in-out infinite;
+}
+
+.flying-ball .streaks {
+  animation: streak-whoosh 1.6s ease-in-out infinite;
+}
+
+@keyframes ball-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes ball-spin {
+  0%, 100% { transform: rotate(-6deg); }
+  50%      { transform: rotate(-1deg); }
+}
+
+@keyframes streak-whoosh {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50%      { opacity: 1; transform: translateX(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flying-ball,
+  .flying-ball .ball,
+  .flying-ball .streaks {
+    animation: none;
+  }
+}
+
+.newsletter {
+  margin-top: 1.5rem;
+}
+
+.newsletter-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.newsletter-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-row input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.newsletter-row button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #2b6cb0;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.newsletter-row button:hover {
+  background: #2c5282;
+}
+
+.newsletter-success {
+  font-weight: 600;
+  color: #2f855a;
+}
